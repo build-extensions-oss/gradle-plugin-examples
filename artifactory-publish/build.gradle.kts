@@ -6,6 +6,7 @@ plugins {
 helm {
     charts {
         create("main") {
+            sourceDir.set(file("src/main/helm"))
             // this is default option - however let's have it explicit
             publish = true
         }
