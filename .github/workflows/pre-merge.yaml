@@ -55,5 +55,5 @@ jobs:
       - name: Assemble ${{ matrix.example-to-test }}
         # Just run Gradlew here - no need to go deeper as of now
         run: ./gradlew
-        with:
-          working-directory: ./${{ matrix.example-to-test }}/
+        working-directory: ./${{ matrix.example-to-test }}/
+
