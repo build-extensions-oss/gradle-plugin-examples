@@ -29,5 +29,5 @@ replay_pid*
 # Generated folders
 .gradle
 .idea
-
+*.iml
 !gradle-wrapper.jar
