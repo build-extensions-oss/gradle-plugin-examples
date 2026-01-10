@@ -2,5 +2,20 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "description": "Keep build-extensions-oss Helm Gradle plugins on the same version",
+      "matchManagers": [
+        "gradle"
+      ],
+      "matchPackageNames": [
+        "io.github.build-extensions-oss.helm",
+        "io.github.build-extensions-oss.helm-releases",
+        "io.github.build-extensions-oss.helm-publish"
+      ],
+      "groupName": "build-extensions-oss Helm Gradle plugins",
+      "groupSlug": "build-extensions-oss-helm-gradle-plugins"
+    }
   ]
 }
