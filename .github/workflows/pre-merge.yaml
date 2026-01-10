@@ -21,7 +21,7 @@ jobs:
         os: [ ubuntu-latest, windows-latest, macos-latest ]
         # Only one JDK is supported
         jdk: [ 17 ]
-        example-to-test: [ artifactory-publish ]
+        example-to-test: [ artifactory-publish, multiple-charts ]
     runs-on: ${{ matrix.os }}
     steps:
       # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle#using-the-gradle-starter-workflow
@@ -55,5 +55,5 @@ jobs:
       - name: Assemble ${{ matrix.example-to-test }}
         # Just run Gradlew here - no need to go deeper as of now
         working-directory: ./${{ matrix.example-to-test }}
-        run: ./gradlew
+        run: ./gradlew helmPackage
 

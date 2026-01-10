@@ -3,6 +3,8 @@ plugins {
     id("io.github.build-extensions-oss.helm-publish") version "3.1.0-beta"
 }
 
+version = "0.0.1"
+
 helm {
     charts {
         create("main") {

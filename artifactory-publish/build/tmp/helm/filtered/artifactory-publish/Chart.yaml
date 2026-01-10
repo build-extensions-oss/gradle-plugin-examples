@@ -1,0 +1,4 @@
+apiVersion: v2
+name: artifactory-publish
+
+version: 0.0.1
