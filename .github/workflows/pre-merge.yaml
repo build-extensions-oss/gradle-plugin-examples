@@ -36,7 +36,7 @@ jobs:
       # Protect from putting custom jar as a gradle wrapper. Please note - this action validates all such jars
       # https://github.com/gradle/actions/tree/main/wrapper-validation
       - name: Validate Gradle wrapper
-        uses: gradle/actions/wrapper-validation@v5
+        uses: gradle/actions/wrapper-validation@f29f5a9d7b09a7c6b29859002d29d24e1674c884 # v5.0.1
 
       # setup JDK - depending on version selected
       # https://github.com/marketplace/actions/setup-java-jdk
@@ -49,11 +49,10 @@ jobs:
       # Optimize Gradle execution
       # https://github.com/marketplace/actions/build-with-gradle
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@f29f5a9d7b09a7c6b29859002d29d24e1674c884 # v5.0.1
 
       # Check each example individually
       - name: Assemble ${{ matrix.example-to-test }}
         # Just run Gradlew here - no need to go deeper as of now
         working-directory: ./${{ matrix.example-to-test }}
         run: ./gradlew helmPackage
-
