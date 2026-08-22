@@ -9,13 +9,14 @@
       "matchManagers": [
         "gradle"
       ],
-      "matchPackageNames": [
+      "matchDepNames": [
         "io.github.build-extensions-oss.helm",
         "io.github.build-extensions-oss.helm-releases",
         "io.github.build-extensions-oss.helm-publish"
       ],
       "groupName": "build-extensions-oss Helm Gradle plugins",
-      "groupSlug": "build-extensions-oss-helm-gradle-plugins"
+      "groupSlug": "build-extensions-oss-helm-gradle-plugins",
+      "separateMajorMinor": false
     }
   ]
 }
