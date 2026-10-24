@@ -20,7 +20,7 @@ jobs:
         # We expect our plugin works on all these operating systems
         os: [ ubuntu-latest, windows-latest, macos-latest ]
         # Supported JDK versions
-        jdk: [ 17, 21 ]
+        jdk: [ 17, 21, 25 ]
     runs-on: ${{ matrix.os }}
     steps:
       # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle#using-the-gradle-starter-workflow
