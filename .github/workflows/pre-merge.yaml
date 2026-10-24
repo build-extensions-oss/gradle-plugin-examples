@@ -56,19 +56,19 @@ jobs:
       # Check basic publication
       - name: Package artifactory-publish
         working-directory: ./artifactory-publish
-        run: bash ./gradlew helmPackage
+        run: ./gradlew helmPackage
 
       # Check running multiple charts in one project
       - name: Package multiple-charts
         working-directory: ./multiple-charts
-        run: bash ./gradlew helmPackage
+        run: ./gradlew helmPackage
 
       # Check release tags - to verify backward compatibility between version 3.2.1 and 3.3.0
       - name: Test release-tags installation
         working-directory: ./release-tags
-        run: bash ./gradlew helmInstallToApplication --dry-run
+        run: ./gradlew helmInstallToApplication --dry-run
 
       # Self-test to validate this repository.
       - name: Test project version synchronization
         working-directory: ./self-test
-        run: bash ./gradlew test
+        run: ./gradlew test
