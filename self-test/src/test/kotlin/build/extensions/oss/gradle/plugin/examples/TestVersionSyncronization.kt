@@ -10,7 +10,7 @@ import kotlin.io.path.name
 import kotlin.io.path.readText
 
 class TestVersionSyncronization {
-    private val repositoryRoot = Path.of(requireNotNull(System.getProperty("examples.repository.root"))).normalize()
+    private val repositoryRoot = DirectoryLookup.repositoryRoot
     private val selfTestProjectRoot = Path.of(requireNotNull(System.getProperty("self-test.project.root"))).normalize()
 
     private val projects: List<Path> = Files.list(repositoryRoot).use { paths ->

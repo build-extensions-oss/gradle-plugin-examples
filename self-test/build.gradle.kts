@@ -13,6 +13,5 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-    systemProperty("examples.repository.root", rootDir.parentFile.absolutePath)
     systemProperty("self-test.project.root", rootDir.absolutePath)
 }
