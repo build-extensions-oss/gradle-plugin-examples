@@ -21,7 +21,6 @@ jobs:
         os: [ ubuntu-latest, windows-latest, macos-latest ]
         # Supported JDK versions
         jdk: [ 17, 21 ]
-        example-to-test: [ artifactory-publish, multiple-charts, release-tags ]
     runs-on: ${{ matrix.os }}
     steps:
       # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle#using-the-gradle-starter-workflow
@@ -51,14 +50,25 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@0723195856401067f7a2779048b490ace7a47d7c # v5.0.2
 
-      # Check each example individually
-      - name: Assemble ${{ matrix.example-to-test }}
-        if: matrix.example-to-test != 'backward-compatible-release-tags'
-        # Just run Gradlew here - no need to go deeper as of now
-        working-directory: ./${{ matrix.example-to-test }}
-        run: ./gradlew helmPackage
+      # We have multiple projects - and we run them with different command to check different scenarios.
+      # Why not using GitHub Matrix approach? The answer: we don't need to have clean environment here, so let's achieve a performance boost and simplicity.
 
-      - name: Release tags
-        if: matrix.example-to-test == 'release-tags'
-        working-directory: ./${{ matrix.example-to-test }}
-        run: ./gradlew helmInstallToApplication --dry-run
+      # Check basic publication
+      - name: Package artifactory-publish
+        working-directory: ./artifactory-publish
+        run: bash ./gradlew helmPackage
+
+      # Check running multiple charts in one project
+      - name: Package multiple-charts
+        working-directory: ./multiple-charts
+        run: bash ./gradlew helmPackage
+
+      # Check release tags - to verify backward compatibility between version 3.2.1 and 3.3.0
+      - name: Test release-tags installation
+        working-directory: ./release-tags
+        run: bash ./gradlew helmInstallToApplication --dry-run
+
+      # Self-test to validate this repository.
+      - name: Test project version synchronization
+        working-directory: ./self-test
+        run: bash ./gradlew test
