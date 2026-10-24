@@ -1,5 +1,5 @@
 plugins {
-    id("io.github.build-extensions-oss.helm-releases") version "3.2.1-beta2"
+    id("io.github.build-extensions-oss.helm-releases") version "3.1.2"
 }
 
 val releaseTags = providers.gradleProperty("example.release.tags")
@@ -16,9 +16,7 @@ helm {
         create("backend") {
             from("example/backend")
 
-            // Since 3.2.1-beta2, tags is a SetProperty<String>. A Provider can be
-            // wired into it without resolving the project property eagerly.
-            tags.set(releaseTags)
+            tags(releaseTags.get())
         }
     }
 

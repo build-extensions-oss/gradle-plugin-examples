@@ -12,6 +12,6 @@ The repository has workflow to test inputs on Windows/Linux/MacOS.
 * `artifactory-publish` publishes a chart to an Artifactory repository.
 * `multiple-charts` builds a chart in one project and consumes it as a release
   from another project.
-* `configuration-cache-release-tags` supplies release tags through a Gradle
-  provider and verifies that the release task graph can be stored in and
-  restored from the configuration cache.
+* `release-tags` supplies release tags through a Gradle
+  provider using a DSL function shared by plugin versions 3.1.2 and
+  3.2.1-beta2.

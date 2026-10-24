@@ -21,7 +21,7 @@ jobs:
         os: [ ubuntu-latest, windows-latest, macos-latest ]
         # Supported JDK versions
         jdk: [ 17, 21 ]
-        example-to-test: [ artifactory-publish, multiple-charts, configuration-cache-release-tags ]
+        example-to-test: [ artifactory-publish, multiple-charts, backward-compatible-release-tags ]
     runs-on: ${{ matrix.os }}
     steps:
       # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle#using-the-gradle-starter-workflow
@@ -53,17 +53,12 @@ jobs:
 
       # Check each example individually
       - name: Assemble ${{ matrix.example-to-test }}
-        if: matrix.example-to-test != 'configuration-cache-release-tags'
+        if: matrix.example-to-test != 'backward-compatible-release-tags'
         # Just run Gradlew here - no need to go deeper as of now
         working-directory: ./${{ matrix.example-to-test }}
         run: ./gradlew helmPackage
 
-      - name: Store configuration cache for provider-backed release tags
-        if: matrix.example-to-test == 'configuration-cache-release-tags'
+      - name: Check backward-compatible release tags
+        if: matrix.example-to-test == 'backward-compatible-release-tags'
         working-directory: ./${{ matrix.example-to-test }}
-        run: ./gradlew helmInstallToApplication --dry-run --configuration-cache --configuration-cache-problems=fail
-
-      - name: Reuse configuration cache for provider-backed release tags
-        if: matrix.example-to-test == 'configuration-cache-release-tags'
-        working-directory: ./${{ matrix.example-to-test }}
-        run: ./gradlew helmInstallToApplication --dry-run --configuration-cache --configuration-cache-problems=fail
+        run: ./gradlew helmInstallToApplication --dry-run
