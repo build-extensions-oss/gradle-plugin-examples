@@ -28,6 +28,7 @@ replay_pid*
 
 # Generated folders
 build
+!/self-test/src/test/kotlin/build/
 .gradle
 .idea
 *.iml
