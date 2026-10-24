@@ -1,1 +1,1 @@
-rootProject.name = "backward-compatible-release-tags"
+rootProject.name = "release-tags"
