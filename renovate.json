@@ -6,7 +6,8 @@
   "gradle-wrapper": {
     "managerFilePatterns": [
       "artifactory-publish/gradle/wrapper/gradle-wrapper.properties",
-      "multiple-charts/gradle/wrapper/gradle-wrapper.properties"
+      "multiple-charts/gradle/wrapper/gradle-wrapper.properties",
+      "self-test/gradle/wrapper/gradle-wrapper.properties"
     ]
   },
   "packageRules": [
