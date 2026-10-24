@@ -3,6 +3,12 @@
   "extends": [
     "config:recommended"
   ],
+  "gradle-wrapper": {
+    "managerFilePatterns": [
+      "artifactory-publish/gradle/wrapper/gradle-wrapper.properties",
+      "multiple-charts/gradle/wrapper/gradle-wrapper.properties"
+    ]
+  },
   "packageRules": [
     {
       "description": "Keep build-extensions-oss Helm Gradle plugins on the same version",
@@ -16,6 +22,15 @@
       ],
       "groupName": "build-extensions-oss Helm Gradle plugins",
       "groupSlug": "build-extensions-oss-helm-gradle-plugins",
+      "separateMajorMinor": false
+    },
+    {
+      "description": "Update all Gradle wrappers together",
+      "matchDatasources": [
+        "gradle-version"
+      ],
+      "groupName": "Gradle",
+      "groupSlug": "gradle",
       "separateMajorMinor": false
     }
   ]
