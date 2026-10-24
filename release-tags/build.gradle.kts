@@ -1,5 +1,5 @@
 plugins {
-    id("io.github.build-extensions-oss.helm-releases") version "3.1.2"
+    id("io.github.build-extensions-oss.helm-releases") version "3.2.0"
 }
 
 helm {
