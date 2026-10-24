@@ -3,6 +3,9 @@
   "extends": [
     "config:recommended"
   ],
+  "rebaseWhen": "never",
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0,
   "gradle-wrapper": {
     "managerFilePatterns": [
       "artifactory-publish/gradle/wrapper/gradle-wrapper.properties",
