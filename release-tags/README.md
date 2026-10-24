@@ -1,4 +1,4 @@
-# Backward-compatible release tags
+# Release tags
 
 This example shows how to configure `HelmRelease.tags` across the API change in
 `gradle-helm-plugin` 3.3.0. In 3.1.2, `tags` is a `MutableSet<String>`;

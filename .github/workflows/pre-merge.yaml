@@ -21,7 +21,7 @@ jobs:
         os: [ ubuntu-latest, windows-latest, macos-latest ]
         # Supported JDK versions
         jdk: [ 17, 21 ]
-        example-to-test: [ artifactory-publish, multiple-charts, backward-compatible-release-tags ]
+        example-to-test: [ artifactory-publish, multiple-charts, release-tags ]
     runs-on: ${{ matrix.os }}
     steps:
       # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle#using-the-gradle-starter-workflow
@@ -58,7 +58,7 @@ jobs:
         working-directory: ./${{ matrix.example-to-test }}
         run: ./gradlew helmPackage
 
-      - name: Check backward-compatible release tags
-        if: matrix.example-to-test == 'backward-compatible-release-tags'
+      - name: Release tags
+        if: matrix.example-to-test == 'release-tags'
         working-directory: ./${{ matrix.example-to-test }}
         run: ./gradlew helmInstallToApplication --dry-run
