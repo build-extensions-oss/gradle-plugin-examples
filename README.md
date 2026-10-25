@@ -14,4 +14,4 @@ The repository has workflow to test inputs on Windows/Linux/MacOS.
   from another project.
 * `release-tags` supplies release tags through a Gradle
   provider using a DSL function shared by plugin versions 3.1.2 and
-  3.2.1-beta2.
+  3.2.1-beta3.
