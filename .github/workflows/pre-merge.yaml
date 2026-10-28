@@ -35,7 +35,7 @@ jobs:
       # Protect from putting custom jar as a gradle wrapper. Please note - this action validates all such jars
       # https://github.com/gradle/actions/tree/main/wrapper-validation
       - name: Validate Gradle wrapper
-        uses: gradle/actions/wrapper-validation@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+        uses: gradle/actions/wrapper-validation@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
 
       # setup JDK - depending on version selected
       # https://github.com/marketplace/actions/setup-java-jdk
@@ -48,7 +48,7 @@ jobs:
       # Optimize Gradle execution
       # https://github.com/marketplace/actions/build-with-gradle
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+        uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
 
       # We have multiple projects - and we run them with different command to check different scenarios.
       # Why not using GitHub Matrix approach? The answer: we don't need to have clean environment here, so let's achieve a performance boost and simplicity.
