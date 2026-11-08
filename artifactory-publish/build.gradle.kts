@@ -1,6 +1,6 @@
 plugins {
-    id("io.github.build-extensions-oss.helm") version "3.3.0"
-    id("io.github.build-extensions-oss.helm-publish") version "3.3.0"
+    id("io.github.build-extensions-oss.helm") version "3.3.1"
+    id("io.github.build-extensions-oss.helm-publish") version "3.3.1"
 }
 
 version = "0.0.1"
